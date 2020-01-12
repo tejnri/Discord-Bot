@@ -142,7 +142,7 @@ class MessageHandler{
         const discord_user = message.author.username;
         const content = message.content;
         const query = _.join(_.slice(content.substring(1).split(' '),1), " ");
-        this.logger.info(`User ${discord_user} asked for search history`);
+        this.logger.info(`User ${discord_user} asked for search history` + (query? ` for query "${query}"`:""));
         // Get the search history from db
         getQueries(discord_user_id,query).then((rows) => {
             // Check if there is any result
