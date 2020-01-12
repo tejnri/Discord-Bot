@@ -47,4 +47,5 @@ GOOFLE_SE=<google custom search id created in step #4>
 5. To see your last 5 recent searches, Type "!recent" and enter.
 
 **Live Demo**
+
 To see a live demo click this invote link to join the bot https://discord.gg/vGHRDs9
