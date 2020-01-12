@@ -1,5 +1,6 @@
 const config = require("./config");
 const https = require('https')
+const querystring = require('querystring');
 
 /**
  * This function will do the search with google custom search api and return the results
@@ -10,10 +11,15 @@ const https = require('https')
  */
 module.exports = (query, maxResults=5) => {
     // Setup the options for sending the requests
+    const query_str = querystring.encode({
+        key: config('GOOGLE_API_KEY'),
+        cx: config('GOOFLE_SE'),
+        q: query
+    })
     const options = {
         hostname: 'www.googleapis.com',
         port: 443,
-        path: `/customsearch/v1?key=${config('GOOGLE_API_KEY')}&cx=${config('GOOFLE_SE')}&q=${query}`,
+        path: `/customsearch/v1?${query_str}`,
         method: 'GET'
     }
 
