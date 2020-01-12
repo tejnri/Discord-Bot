@@ -48,4 +48,4 @@ GOOFLE_SE=<google custom search id created in step #4>
 
 **Live Demo**
 
-To see a live demo click this invote link to join the bot https://discord.gg/vGHRDs9
+To see a live demo click this invite link to join the bot https://discord.gg/vGHRDs9
