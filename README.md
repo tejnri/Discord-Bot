@@ -11,7 +11,7 @@ This bot will be used to respond to users with google search result and their re
 CREATE TABLE `search_history` (
   `id` int(10) UNSIGNED NOT NULL,
   `discord_user_id` varchar(255) NOT NULL,
-  `query` text NOT NULL,
+  `query` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ALTER TABLE `search_history`
