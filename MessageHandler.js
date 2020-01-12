@@ -140,9 +140,11 @@ class MessageHandler{
         // Get the user id who is sending
         const discord_user_id = message.author.id;
         const discord_user = message.author.username;
+        const content = message.content;
+        const query = _.join(_.slice(content.substring(1).split(' '),1), " ");
         this.logger.info(`User ${discord_user} asked for search history`);
         // Get the search history from db
-        getQueries(discord_user_id).then((rows) => {
+        getQueries(discord_user_id,query).then((rows) => {
             // Check if there is any result
             if(rows.length === 0){
                 this.logger.info(`User ${discord_user} is returned with empty saved search history`);
@@ -156,14 +158,15 @@ class MessageHandler{
                 this.logger.info(`User ${discord_user} successfully replied with his/her search history`);
                 message.channel.send({
                     embed:{
-                        title: "Your last 5 search queries are below",
+                        title: `History search result:`,
                         description: search_queries
                     }
                 })
             }
-        }).catch(() => {
+        }).catch((e) => {
             // If there is an error in getting the history then send an error msg
             this.logger.error(`Error in fetching history for User ${discord_user}`);
+            console.log(e);
             this._sendSimpleErrorMsg(message);
         })
     }

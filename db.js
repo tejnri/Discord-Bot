@@ -44,9 +44,20 @@ module.exports.saveQuery = (user, query) => {
  * @param maxCount Max number of last history to be returned
  * @returns {void|PromiseLike<any>|Promise<any>}
  */
-module.exports.getQueries = (user, maxCount=5) => {
-    return conn.query("SELECT query from search_history where discord_user_id=? order by created_at desc LIMIT ?",
-        [user,maxCount]).then(([rows]) => {
-        return rows;
-    });
+module.exports.getQueries = (user, query='', maxCount=5) => {
+    // When there is a query given
+    if(query){
+        return conn.query("SELECT query from search_history where discord_user_id=? and query like ? order by created_at desc LIMIT ?",
+            [user,`%${query}%`, maxCount]).then(([rows]) => {
+            return rows;
+        });
+    }
+    // When there is no query given. In this case return any last result
+    else{
+        return conn.query("SELECT query from search_history where discord_user_id=? order by created_at desc LIMIT ?",
+            [user, maxCount]).then(([rows]) => {
+            return rows;
+        });
+    }
+
 }
