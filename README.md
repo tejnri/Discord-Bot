@@ -45,7 +45,7 @@ GOOFLE_SE=<google custom search id created in step #4>
 2. You can see the bot as online in the user list
 3. You can first check it by typing "Hi". It should respond with "Hello" and you should also see the log msgs in your console showing this interaction with the bot
 4. To do google search type "!google \<search query\>". You would get the top 5 search results
-5. To see your last 5 recent searches, Type "!recent" and enter.
+5. To see your last 5 recent matching searches, Type "!recent \<search query\>" and to just return the last 5 queries just type "!recent" and enter.
 
 **Live Demo**
 
