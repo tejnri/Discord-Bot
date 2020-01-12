@@ -16,7 +16,8 @@ CREATE TABLE `search_history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ALTER TABLE `search_history`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `discord_user_id` (`discord_user_id`);
+  ADD KEY `discord_user_id` (`discord_user_id`),
+  ADD KEY `query` (`query`);
 ALTER TABLE `search_history`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 ```
