@@ -148,7 +148,7 @@ class MessageHandler{
             // Check if there is any result
             if(rows.length === 0){
                 this.logger.info(`User ${discord_user} is returned with empty saved search history`);
-                message.channel.send("Sorry there is no search history saved at this time.");
+                message.channel.send("Sorry, no result.");
             }else{
                 // Combine the search queries in a single string
                 let search_queries = _.map(rows, (row, index) => {
