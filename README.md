@@ -1,6 +1,6 @@
 # Discord-Bot
 
-This bot will be used to respond to users with google search result and their resent search query history
+This bot will be used to respond to users with google search result and their recent search query history
 
 
 **How to install it**
